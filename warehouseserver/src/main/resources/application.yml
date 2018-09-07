@@ -1,0 +1,9 @@
+server:
+  port: 8991
+spring:
+  application:
+    name: warehouseserver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8988/eureka

@@ -1,0 +1,30 @@
+server:
+  port: 8990
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: userserver
+        uri: lb://userserver
+        predicates:
+        - Header=application-server,userserver
+      - id: warehouseserver
+        uri: lb://warehouseserver
+        predicates:
+        - Header=application-server,warehouseserver
+      discovery:
+        locator:
+          enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8988/eureka
+    register-with-eureka: false
+#    enabled: false
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+

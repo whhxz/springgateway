@@ -1,0 +1,13 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: userserver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8988/eureka
+logging:
+  level:
+    org.springframework: debug
+
